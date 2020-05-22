@@ -15,9 +15,9 @@ namespace ParcialParte2bis
             DateTime Fecha1;
             DateTime Fecha2;
 
-            Console.WriteLine("ingrese el primer instate de tiempo en este formato: \ndia, mes, año \n ");
+            Console.WriteLine("ingrese el primer instante de tiempo en este formato: \ndia, mes, año \n ");
             Fecha1 = DateTime.Parse(Console.ReadLine());
-            Console.WriteLine("ingrese el primer instate de tiempo en este formato: \ndia, mes, año\n ");
+            Console.WriteLine("ingrese el segundo instante de tiempo en este formato: \ndia, mes, año\n ");
             Fecha2 = DateTime.Parse(Console.ReadLine());
 
 
@@ -35,7 +35,7 @@ namespace ParcialParte2bis
             for (int i=0; i<Fechas.Length; i++)
             {
                 
-                TimeSpan newSpan = new TimeSpan((randomTest.Next(0, 2020)),(randomTest.Next(0, 30)),(randomTest.Next(0,24)), randomTest.Next(0, 60), randomTest.Next(0,60));
+                TimeSpan newSpan = new TimeSpan((randomTest.Next(0, 2020)),(randomTest.Next(0, 29)),(randomTest.Next(0,23)), randomTest.Next(0, 59), randomTest.Next(0,59));
                 DateTime newDate = Fecha1 + newSpan;
                 if (newDate > Fecha2)
                 {
@@ -59,20 +59,29 @@ namespace ParcialParte2bis
 
 
             Console.WriteLine("Ingrese en cuantos periodos lo quiere separar");
-            int periodos = int.Parse(Console.ReadLine());
+            int cantidad = int.Parse(Console.ReadLine());
 
-            int divicion = periodo.Days / periodos;
+            int periodos = periodo.Days / 3;
 
+            int auxiliar = periodos / cantidad;
 
-            Console.WriteLine(divicion);
-
-
-
-
-
-
-            for (int i=0; i< periodos; i++)
+            //Fecha3 = Fecha1.AddDays(cantidad);
+            
+            for(int i = 0; i<cantidad; i++)
             {
+                if (i == 0)
+                {
+                    Console.WriteLine(Fecha1);
+                } 
+                else if(i == cantidad - 1)
+                {
+                    Console.WriteLine(Fecha2);
+                }
+                else
+                {
+                    Console.WriteLine(Fecha1.AddDays(cantidad * auxiliar).AddHours(randomTest.Next(0, 59)));
+
+                }
                 
             }
             Console.ReadKey();
