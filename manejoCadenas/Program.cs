@@ -4,6 +4,16 @@ namespace manejoCadenas
 {
 	class Program
 	{
+
+		static void Main(string[] args)
+		{
+			string Charset = "aábcdeéfghiíjklmnñoópqrstuúüvwxyz";
+			int Clave = 17;
+			string MensajeCifrado = "fcyb ry pbabpüzüragb ehr yyruñ qrfqr qragéb rf ry jréqñqréb pbabpüzüragb";
+
+			Console.WriteLine("Mensaje decifrado:\n{0}", Descifrar(MensajeCifrado, Charset, Clave));
+		}
+
 		static string Descifrar(string Mensaje, string Charset, int Clave)
 		{
 			string Out = "";
@@ -22,15 +32,6 @@ namespace manejoCadenas
 				}
 			}
 			return Out;
-		}
-
-		static void Main(string[] args)
-		{
-			string Charset = "aábcdeéfghiíjklmnñoópqrstuúüvwxyz";
-			int Clave = 17;
-			string MensajeCifrado = "fcyb ry pbabpüzüragb ehr yyruñ qrfqr qragéb rf ry jréqñqréb pbabpüzüragb";
-
-			Console.WriteLine("Mensaje decifrado:\n{0}", Descifrar(MensajeCifrado, Charset, Clave));
 		}
 	}
 }
